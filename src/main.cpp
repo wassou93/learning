@@ -25,7 +25,7 @@ int main()
     std::cout << std::endl << std::endl;
 
     // test algorithm
-    std::copy(b.begin(), b.begin() + 4, b.begin() + 6);
+    std::copy_n(b.begin(), 4, b.begin() + 6); // changing function to copy_n and use number of hopes instead of end iterator
     write_to_cout(b);
 
     std::cout << std::endl;
