@@ -32,5 +32,11 @@ int main()
 
     std::cout << typeid(std::vector<std::string>::value_type).name() << std::endl;
 
+    // If you want to read from input stream
+    // You cannot give iterator + x with std::copy 
+    // so you have to use std::copy_n instead to read a number of chars
+
+    std::copy_n(std::istream_iterator<std::string>(std::cin), 5, b.begin());
+
     std::cin.get();
 }
