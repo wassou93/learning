@@ -1,0 +1,3 @@
+C:/Users/wasso/source/repos/learning/CMakeFiles/learning.dir
+C:/Users/wasso/source/repos/learning/CMakeFiles/ALL_BUILD.dir
+C:/Users/wasso/source/repos/learning/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wasso\source\repos\learning\CMakeFiles\a6b7ca7ea1e5f5b5dc62dde3b534aae8\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A8C2D3DE-BCBA-3A0C-A309-015A2860785E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
