@@ -37,6 +37,26 @@ int main()
     // so you have to use std::copy_n instead to read a number of chars
 
     std::copy_n(std::istream_iterator<std::string>(std::cin), 5, b.begin());
+    std::cout << std::endl;
+    write_to_cout(b);
+    std::cout << std::endl;
+
+    std::vector<std::string> bf = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+
+    std::copy_backward(bf.begin() + 1, bf.begin() + 3, bf.begin() + 2); // when you overlapping copy ranges in the same contiguous container
+    // You can achieve the same affect by using rbegin and rend which renders copy_backward as redudant 
+    
+    std::cout << std::endl;
+    write_to_cout(bf);
+    std::cout << std::endl;
+
+    std::vector<std::string> br = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+    std::copy(br.rbegin() + 1, br.rbegin() + 3, br.rbegin() + 2); // when you overlapping copy ranges in the same contiguous container
+    // You can achieve the same affect by using rbegin and rend which renders copy_backward as redudant 
+    
+    std::cout << std::endl;
+    write_to_cout(br);
+    std::cout << std::endl;
 
     std::cin.get();
 }
