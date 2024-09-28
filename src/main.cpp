@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator> // Include this header for std::ostream_iterator
+#include <concepts>
 
 #include "main.h"
 
@@ -22,6 +23,25 @@ void print_iterator_type() {
 	std::cout << "Value type 1: " << typeid( ValueType1 ).name() << std::endl;
 	std::cout << "Value type 2: " << typeid( ValueType2 ).name() << std::endl;
 }
+
+// Using iterator types to know whether a type is integral or not
+template <typename T>
+void check_type_with_trait_type() {
+    if (std::is_integral<T>::value) {
+        std::cout << "T is an integral type." << std::endl;
+    } else {
+        std::cout << "T is not an integral type." << std::endl;
+    }
+}
+
+template <typename T>
+concept Integral = std::is_integral_v<T>;
+
+template <Integral T>
+void check_type_with_concepts() {
+    std::cout << typeid(T).name() << " is an integral type." << std::endl;
+}
+
 
 int main()
 
@@ -72,6 +92,29 @@ int main()
 	// Iterator type : class std::_Vector_iterator<class std::_Vector_val<struct std::_Simple_types<int> > >
 	// Value type 1 : int
 	// Value type 2 : int
+
+
+	check_type_with_trait_type<int>();    // Output: T is an integral type.
+    check_type_with_trait_type<double>(); // Output: T is not an integral type.
+
+	check_type_with_concepts<int>();    // Output: T is an integral type.
+    // check_type_with_concepts<double>(); // Compilation error: double does not satisfy the Integral concept.
+
+	static_assert(std::is_integral_v<bool>, "bool is an integral type");
+    static_assert(std::is_integral_v<char>, "char is an integral type");
+    static_assert(std::is_integral_v<signed char>, "signed char is an integral type");
+    static_assert(std::is_integral_v<unsigned char>, "unsigned char is an integral type");
+    static_assert(std::is_integral_v<wchar_t>, "wchar_t is an integral type");
+    static_assert(std::is_integral_v<char16_t>, "char16_t is an integral type");
+    static_assert(std::is_integral_v<char32_t>, "char32_t is an integral type");
+    static_assert(std::is_integral_v<short>, "short is an integral type");
+    static_assert(std::is_integral_v<unsigned short>, "unsigned short is an integral type");
+    static_assert(std::is_integral_v<int>, "int is an integral type");
+    static_assert(std::is_integral_v<unsigned int>, "unsigned int is an integral type");
+    static_assert(std::is_integral_v<long>, "long is an integral type");
+    static_assert(std::is_integral_v<unsigned long>, "unsigned long is an integral type");
+    static_assert(std::is_integral_v<long long>, "long long is an integral type");
+	static_assert( std::is_integral_v<unsigned long long>, "unsigned long long is an integral type" );
 
 	std::cin.get();
 }
