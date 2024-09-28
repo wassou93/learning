@@ -5,7 +5,7 @@
 #include <iterator> // Include this header for std::ostream_iterator
 #include <concepts>
 
-#include "main.h"
+#include "main.hpp"
 
 template<typename Container>
 void write_to_cout( const Container &container, const char *delimiter = " " )
