@@ -15,7 +15,8 @@ void write_to_cout( const Container &container, const char *delimiter = " " )
 }
 
 template <typename Container>
-void print_iterator_type() {
+void print_iterator_type() 
+{
 	using IteratorType = std::ranges::iterator_t<Container>;
 	using ValueType1 = std::ranges::range_value_t<Container>;
 	using ValueType2 = Container::value_type;
@@ -26,7 +27,8 @@ void print_iterator_type() {
 
 // Using iterator types to know whether a type is integral or not
 template <typename T>
-void check_type_with_trait_type() {
+void check_type_with_trait_type() 
+{
     if (std::is_integral<T>::value) {
         std::cout << "T is an integral type." << std::endl;
     } else {
@@ -58,9 +60,9 @@ int main()
 
 	// test algorithm
 	std::string uppers;
-	// uppers.resize( a.length() + b.length() );
-	// std::copy_if( a.begin(), a.end(), uppers.begin(), std::isupper );
-	// std::copy_if( b.begin(), b.end(), uppers.begin() + 4, std::isupper );
+	uppers.resize( a.length() + b.length() );
+	std::copy_if( a.begin(), a.end(), uppers.begin(), std::isupper );
+	std::copy_if( b.begin(), b.end(), uppers.begin() + 4, std::isupper );
 
 	// Inserter is used to grow uppers if necessary and return an iterator of that placeholder
 	std::copy_if( a.begin(), a.end(), std::inserter( uppers, uppers.begin() ), std::isupper );
@@ -69,8 +71,8 @@ int main()
 
 	// an easier way is to just use std::back_inserter to grow and return the last placeholder always
 	// very similar to how push_back does the insertion
-	// std::copy_if( a.begin(), a.end(), std::back_inserter( uppers ), std::isupper );
-	// std::copy_if( b.begin(), b.end(), std::back_inserter( uppers ), std::isupper );
+	std::copy_if( a.begin(), a.end(), std::back_inserter( uppers ), std::isupper );
+	std::copy_if( b.begin(), b.end(), std::back_inserter( uppers ), std::isupper );
 
 	// In the std::inserter example we used something called trait type std::ranges::iterator_t<Container>
 	// This is used in metaprogramming to get the iterator type of the container
@@ -92,7 +94,6 @@ int main()
 	// Iterator type : class std::_Vector_iterator<class std::_Vector_val<struct std::_Simple_types<int> > >
 	// Value type 1 : int
 	// Value type 2 : int
-
 
 	check_type_with_trait_type<int>();    // Output: T is an integral type.
     check_type_with_trait_type<double>(); // Output: T is not an integral type.
@@ -118,3 +119,4 @@ int main()
 
 	std::cin.get();
 }
+
