@@ -13,12 +13,12 @@ set(PROJECT_NAME learning)
 project(${PROJECT_NAME} VERSION 0.1.0 LANGUAGES C CXX)
 
 # Add source files
-set(SOURCE_FILES
+set(SOURCES
     src/main.cpp
 )
 
 # Add the executable
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Specify multiple include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
