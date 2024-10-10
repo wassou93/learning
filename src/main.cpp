@@ -1,25 +1,23 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "main.hpp"
 
 int main()
 {
-	int *num_ptr = nullptr;
+	int *num_ptr = ( int * ) malloc( sizeof( int ) );
 
-	try
+	if ( num_ptr == NULL )
 	{
-		num_ptr = new int;
-
-		*num_ptr = 42;
-		std::cout << "Dynamic number: " << *num_ptr << std::endl;
-	}
-	catch ( const std::bad_alloc& e )
-	{
-		std::cout << "Allocation Error: " << e.what() << std::endl;
+		fprintf( stderr, "Value was not allocated correctly!" );
 		return 1;
 	}
 
-	delete num_ptr;
+	*num_ptr = 24;
+
+	printf( "%d\n", *num_ptr );
+
+	free( num_ptr );
 
 	return 0;
 }
